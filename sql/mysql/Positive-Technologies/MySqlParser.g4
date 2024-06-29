@@ -165,6 +165,7 @@ compoundStatement
     | iterateStatement
     | returnStatement
     | cursorStatement
+    | withStatement dmlStatement
     ;
 
 administrationStatement
@@ -285,7 +286,7 @@ createTablespaceNdb
     ;
 
 createTrigger
-    : CREATE ownerStatement? TRIGGER thisTrigger = fullId triggerTime = (BEFORE | AFTER) triggerEvent = (
+    : CREATE ownerStatement? TRIGGER ifNotExists? thisTrigger = fullId triggerTime = (BEFORE | AFTER) triggerEvent = (
         INSERT
         | UPDATE
         | DELETE
